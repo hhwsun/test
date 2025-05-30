@@ -8,6 +8,9 @@ fi
 OPTION=$1
 
 case "$OPTION" in
+    hello)
+        curl -sfL https://hhwsun.github.io/test/hello.sh | sh -s
+        ;;
     install)
         echo "curl -sfL https://hhwsun.github.io/test/install.sh | sh"
         ;;
