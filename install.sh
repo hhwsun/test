@@ -1,4 +1,9 @@
 #!/bin/sh
+
+#
+# https://get.k3s.io
+#
+
 set -e
 set -o noglob
 
