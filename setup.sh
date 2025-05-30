@@ -16,13 +16,15 @@ case "$OPTION" in
         then
             echo "k3s was already installed."
         else
-            echo "Install k3s: curl -sfL https://hhwsun.github.io/test/install.sh | sh"
+            echo "Install k3s: curl -sfL https://hhwsun.github.io/test/install.sh | K3S_TOKEN=MYK3SSECRET sh -s - server --cluster-init"
+            curl -sfL https://hhwsun.github.io/test/install.sh | K3S_TOKEN=MYK3SSECRET sh -s - server --cluster-init
         fi
         ;;
     uninstall)
         if command -v k3s &> /dev/null
         then
-            echo "Uninstall k3s: curl -sfL https://hhwsun.github.io/test/uninstall.sh | sh"
+            echo "Uninstall k3s: curl -sfL https://hhwsun.github.io/test/uninstall.sh | sh -s"
+            curl -sfL https://hhwsun.github.io/test/uninstall.sh | sh -s
         else
             echo "k3s was not installed."
         fi
