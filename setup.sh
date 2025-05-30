@@ -12,10 +12,20 @@ case "$OPTION" in
         curl -sfL https://hhwsun.github.io/test/hello.sh | sh -s
         ;;
     install)
-        echo "curl -sfL https://hhwsun.github.io/test/install.sh | sh"
+        if command -v k3s &> /dev/null
+        then
+            echo "k3s was already installed."
+        else
+            echo "Install k3s: curl -sfL https://hhwsun.github.io/test/install.sh | sh"
+        fi
         ;;
     uninstall)
-        echo "curl -sfL https://hhwsun.github.io/test/uninstall.sh | sh"
+        if command -v k3s &> /dev/null
+        then
+            echo "Uninstall k3s: curl -sfL https://hhwsun.github.io/test/uninstall.sh | sh"
+        else
+            echo "k3s was not installed."
+        fi
         ;;
     *)
         echo "Unknown option: $OPTION"
